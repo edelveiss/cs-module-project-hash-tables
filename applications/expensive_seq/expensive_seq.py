@@ -1,8 +1,26 @@
-# Your code here
+
+# Hint: Va Clguba, n qvpg xrl pna or nal vzzhgnoyr glcr... vapyhqvat n
+# ghcyr.
+
+# (That's encrypted with ROT13--Google `rot13 decoder` to decode it if you
+# want the hint.)
+# Decoded Hint:
+# In Python, a dict key can be any immutable type... including a
+# tuple.
 
 
+cache={}
 def expensive_seq(x, y, z):
-    # Your code here
+    if (x, y, z) in cache:
+        return cache[(x, y, z)]
+    if x <= 0:
+        cache[(x, y, z)] = y + z
+        return cache[(x, y, z)]
+    cache[(x, y, z)] = expensive_seq(x-1,y+1,z) + expensive_seq(x-2,y+2,z*2) + expensive_seq(x-3,y+3,z*3)
+    return cache[(x, y, z)]
+
+
+   
 
 
 

@@ -1,5 +1,20 @@
+
 def word_count(s):
-    # Your code here
+    counter_dict = {}
+    data = s.lower().split()
+    for word in data:
+        word_without_chars = word.strip('" : ; , . - + = / \ | [ ] { } ( ) * ^ &')
+        if word_without_chars == "":
+            return {}
+        if word_without_chars in counter_dict:
+            counter_dict[word_without_chars] += 1
+        else:
+            counter_dict[word_without_chars] = 1
+
+    
+    return counter_dict
+
+    
 
 
 
